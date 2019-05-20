@@ -1,0 +1,16 @@
+name: mlflow-demo
+channels:
+  - defaults
+dependencies:
+  - pip
+  - numpy
+  - pandas=0.24.2
+  - python==3.7
+  - scikit-learn==0.20.3
+  - pip:
+    - pyarrow
+    - mlflow
+    - tensorflow==2.0.0a0
+    - catboost
+    - keras
+    - jupyter
