@@ -14,3 +14,5 @@ dependencies:
     - catboost
     - keras
     - jupyter
+    - azureml-sdk
+    - pylint
