@@ -1,14 +1,14 @@
 name: mlflow-demo
 
-conda_env: conda.yaml
+conda_env: environment.yml
 
 # Can have a docker_env instead of a conda_env, e.g.
 # docker_env:
 #    image:  mlflow-docker-example
 
 entry_points:
-  train:
+  main:
     parameters:
       data_file: path
       alpha: {type: float, default: 1.0}
-    command: "python mlflow/train.py -a {alpha} -d {data_file}"
+    command: "python train.py -a {alpha} -d {data_file}"
