@@ -5,10 +5,10 @@ This repo contains instructions and code to follow the demo presented 29-05-2019
 This is a guide to help you set up your development environment so that you can follow the demo on your own computer. (And use MlFlow for your own projects afterwards)
 ### Mac users
 1. Install Anaconda
-2. Install Visual Studio Code
-3. Install MlFlow
-
-You cannot install MLflow on the MacOS system installation of Python. We recommend installing Python 3 through the Homebrew package manager using brew install python. (In this case, installing MLflow is now pip3 install mlflow).
+2. Optional: Install Visual Studio Code
+3. Install Homebrew python.
+From [MlFlow docs](https://mlflow.org/docs/latest/index.html):
+You cannot install MLflow on the MacOS system installation of Python. We recommend installing Python 3 through the Homebrew package manager using brew install python.
 
 ### Windows 10
 MlFlow does not support installation on Windows (yet). But I will describe one way that you can make it work anyway, that may also be useful for other development scenarios. This is only possible for windows 10. For users with earlier windows versions, I do not have a solution, unfortunately.
@@ -22,12 +22,22 @@ This allows us to access the Linux filesystem from VS Code.
 A)
 Open the Ubuntu 18.04 application. 
 Run the command:
+
 ```code-insiders .```
+
 Necessary components will be installed, and VS Code with access to the WSL file system will be launched.
 OR
 B) 
 Open Visual Studio Code - Insiders, open the command palette (Ctrl+Shift+P) and choose "Remote WSL: New window".
 You should now be able to open a folder on the Ubuntu filesystem from Visual Studio Code Insiders. 
+
+## MlFlow installation
+MlFlow 1.0 is very close. They have published release candidate version(s), and it is this one we will use for this workshop.
+For all functions of the mlflow cli to work as expected, it is recommended to install MlFlow in the conda base environment (Not doing this requires additional workarounds). 
+To install, run the following command (must be run from WSL bash for windows users):
+```pip install https://mlflow-snapshots.s3-us-west-2.amazonaws.com/mlflow-1.0.0.rc0-1173.fb8a711-py2.py3-none-any.whl```
+
+This will install the release candidate version. 
 
 ## Training 
 
