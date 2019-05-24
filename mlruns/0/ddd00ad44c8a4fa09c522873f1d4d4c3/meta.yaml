@@ -1,0 +1,14 @@
+artifact_uri: /home/thomas/meetup-mlflow/mlruns/0/ddd00ad44c8a4fa09c522873f1d4d4c3/artifacts
+end_time: 1558613504666
+entry_point_name: main
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_uuid: ddd00ad44c8a4fa09c522873f1d4d4c3
+source_name: file:///home/thomas/meetup-mlflow
+source_type: 3
+source_version: 79d2b886a64d28afab02e80b131df13cfb7ad070
+start_time: 1558612626494
+status: 4
+tags: []
+user_id: thomas
