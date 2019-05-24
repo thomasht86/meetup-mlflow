@@ -1,5 +1,5 @@
-# meetup-mlflow
-Trondheim Machine Learning Meetup - MlFlow
+# Trondheim Machine Learning Meetup - MlFlow
+This repo contains instructions and code to follow the demo presented 29-05-2019.
 
 ## Preparation
 This is a guide to help you set up your development environment so that you can follow the demo on your own computer. (And use MlFlow for your own projects afterwards)
