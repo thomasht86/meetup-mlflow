@@ -7,6 +7,7 @@ This is a guide to help you set up your development environment so that you can 
 1. Install Anaconda
 2. Install Visual Studio Code
 3. Install MlFlow
+
 You cannot install MLflow on the MacOS system installation of Python. We recommend installing Python 3 through the Homebrew package manager using brew install python. (In this case, installing MLflow is now pip3 install mlflow).
 
 ### Windows 10
