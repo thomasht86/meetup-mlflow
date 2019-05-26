@@ -1,6 +1,6 @@
 name: mlflow-demo
 
-conda_env: environment.yml
+conda_env: test-rc1.yml
 
 entry_points:
   main:
