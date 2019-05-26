@@ -18,6 +18,21 @@ import argparse
 import mlflow
 from mlflow import log_metric, log_param, log_artifact
 import mlflow.sklearn
+import mlflow.pyfunc
+
+class TextClassifier(mlflow.pyfunc.PythonModel):
+
+    def __init__(self, vectorizer, clf):
+        self.vectorizer = vectorizer
+        self.clf = clf
+        
+    def predict(self, context, model_input):
+        print(model_input)
+        print(type(model_input))
+        prepped_input = self.vectorizer.transform(model_input["description"])
+        print(prepped_input.shape)
+        preds = self.clf.predict(prepped_input)
+        return preds
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--seed", help="Specify seed for reproducibility", type=int, default=42)
@@ -43,7 +58,7 @@ if __name__ == "__main__":
     use_svd = False
 
     conda_env_path = "environment.yml"
-    model_prefix = "models"
+    model_prefix = "/models"
     data_file = args.datafile
 
     mlflow.set_experiment("ntnu_course_classifier")
@@ -51,9 +66,11 @@ if __name__ == "__main__":
     ## Data import and cleaning
     with mlflow.start_run() as run:
         # Get path to save model
-        tracking_uri = mlflow.get_artifact_uri().strip("artifacts")
+        tracking_uri = mlflow.tracking.get_tracking_uri() 
         print("Logging to "+tracking_uri)
-        model_path = tracking_uri+model_prefix
+        artifact_uri = mlflow.get_artifact_uri()
+        print("Saving artifacts to "+artifact_uri)
+        model_path = artifact_uri+model_prefix
 
         # Log params
         mlflow.log_param("seed", seed)
@@ -109,6 +126,9 @@ if __name__ == "__main__":
 
         # Make predictions with test set
         preds = clf.predict(test_vec)
+
+        textclf = TextClassifier(vec, clf)
+        mlflow.pyfunc.save_model(model_path, conda_env=conda_env_path, python_model=textclf)
         
         # Calculate metrics from predictions and y_test
         acc = accuracy_score(y_test, preds)
@@ -122,7 +142,7 @@ if __name__ == "__main__":
         for c, f1 in zip(label_cols, f1_per_class):
             mlflow.log_metric("f1_"+c, f1)
         
-        mlflow.sklearn.save_model(clf, model_path, conda_env=conda_env_path, serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE)
+        #mlflow.sklearn.save_model(clf, model_path, conda_env=conda_env_path, serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE)
 
         #%% [markdown]
         # ## Next steps

@@ -1,0 +1,10 @@
+# Run training locally (in same repo)
+mlflow run .
+
+# 
+
+# Deploy prediction server locally
+mlflow models serve -m /home/thomas/meetup-mlflow/mlruns/0/54a2c454368047048a6d965bc5b3d350/artifacts/models -p 1234
+
+# Make predictions locally
+curl -X POST -H "Content-Type:application/json; format=pandas-split" --data '{description"],"data":[["medicine engineering"],["test medicine medical surgery"]]}' http://127.0.0.1:1234/invocations

@@ -1,0 +1,18 @@
+{
+    "num_workers": null,
+    "autoscale": {
+        "min_workers": 2,
+        "max_workers": 8
+    },
+    "cluster_name": "mlflow-meetup",
+    "spark_version": "5.3.x-scala2.11",
+    "spark_conf": {},
+    "node_type_id": "Standard_DS3_v2",
+    "ssh_public_keys": [],
+    "custom_tags": {},
+    "spark_env_vars": {
+        "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+    },
+    "autotermination_minutes": 120,
+    "init_scripts": []
+}

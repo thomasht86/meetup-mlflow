@@ -1,7 +1,11 @@
 # Trondheim Machine Learning Meetup - MlFlow
 This repo contains instructions and code to follow the demo presented 29-05-2019.
 
-## Preparation
+## Create an Azure subscription
+If you already have access to an active Azure subscription, you can use this. 
+Otherwise, you can create a free account with $200 of credits [here](https://azure.microsoft.com/en-us/free/).
+
+## Set up environment
 This is a guide to help you set up your development environment so that you can follow the demo on your own computer. (And use MlFlow for your own projects afterwards)
 ### Mac users
 1. [Install Anaconda (Python 3.7 version)](https://www.anaconda.com/distribution/)
@@ -37,7 +41,7 @@ You should now be able to open a folder on the Ubuntu filesystem from Visual Stu
 Go to MlFlow installation.
 
 ## MlFlow installation
-MlFlow 1.0 is very close. They have published release candidate version(s), and it is this one we will use for this workshop.
+MlFlow 1.0 is [very close](https://mlflow.org/news/2019/05/22/1.0.0-release-candidate-1/index.html). They have published a release candidate version, and it is this one we will use for this workshop.
 For all functions of the mlflow cli to work as expected, it is recommended to install MlFlow in the conda base environment (Not doing this requires additional workarounds). 
 To install, run the following command (must be run from WSL bash for windows users):
 
@@ -46,11 +50,14 @@ To install, run the following command (must be run from WSL bash for windows use
 This will install the release candidate version. 
 
 ## Training 
+- Demonstrate training+tracking on local computer
+- Demonstrate training+tracking on Databricks
 
 ## Comparing
+- Access results programmatically
 
 ## Serving
-
-## Deploying
+- Serving from local computer
+- Serving from ACI
 
 
