@@ -1,8 +1,19 @@
+# Motivation
+- PoC to prod 
+- Simple
+- Remote execution
+- Modular
+- 
+
+
+# Start mlflow ui
+Remember that location matters
+
 # Run training locally (in same repo)
 mlflow run .
 
 # Run MLproject from git
-mlflow run git@github.com:thomasht86/meetup-mlflow.git -P alpha=0.5
+mlflow run git@github.com:thomasht86/meetup-mlflow.git
 
 # Deploy prediction server locally
 mlflow models serve -m /home/thomas/meetup-mlflow/mlruns/0/54a2c454368047048a6d965bc5b3d350/artifacts/models -p 1234
