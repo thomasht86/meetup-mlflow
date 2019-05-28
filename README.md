@@ -43,8 +43,6 @@ You should now be able to open a folder on the Ubuntu filesystem from Visual Stu
 ### Linux users
 1. [Install Anaconda (Python 3.7 version)](https://www.anaconda.com/distribution/)
 
-Go to MlFlow installation.
-
 ## Create an Azure subscription
 If you already have access to an active Azure subscription, you can use this. 
 Otherwise, you can create a free account with $200 of credits [here](https://azure.microsoft.com/en-us/free/).
@@ -61,6 +59,6 @@ To install, run the following command (must be run from WSL bash for windows use
 
 This will install the release candidate version. 
 
-If you made it through, well done. If not, we will spend some time in the beginning of the meetup to try to get as many as possible set up. You will also hopefully learn a little from watching the demo.
+If you made it through, well done! If not, we will spend some time in the beginning of the meetup to try to get as many as possible set up. You will also hopefully learn something from just watching the demo.
 
 
