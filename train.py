@@ -37,7 +37,7 @@ class TextClassifier(mlflow.pyfunc.PythonModel):
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--seed", help="Specify seed for reproducibility", type=int, default=42)
 parser.add_argument("-i", "--idf", help="Whether to use inverse document frequency", action="store_true", default=True)
-parser.add_argument("-n", "--ngram_range", help="Number of character sequences to use as features", type=int,
+parser.add_argument("-n", "--ngrams", help="Number of character sequences to use as features", type=int,
                     choices=[1,2,3], default=1)
 parser.add_argument("-a", "--alpha", help="Naive bayes smoothing parameter (0=no smoothing)", type=float, default=1.)
 parser.add_argument("-f", "--fit_prior", help="Whether to fit priors", action="store_true", default=True)
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     print(args)
     seed = args.seed
     use_idf = args.idf
-    ngram_range = (1,args.ngram_range)
+    ngram_range = (1,args.ngrams)
     alpha = args.alpha
     fit_prior = args.fit_prior
     use_stoplist = args.use_stoplist
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         mlflow.log_param("seed", seed)
         mlflow.log_param("use_idf", use_idf)
         mlflow.log_param("use_stoplist", use_stoplist)
-        mlflow.log_param("ngram_range", ngram_range)
+        mlflow.log_param("ngrams", args.ngrams)
         mlflow.log_param("alpha", alpha)
         mlflow.log_param("fit_prior", fit_prior)
         mlflow.log_param("data_file", data_file)

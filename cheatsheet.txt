@@ -5,6 +5,10 @@
 - Modular
 - 
 
+# Add git config
+
+# Add git SSH
+https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 # Start mlflow ui
 Remember that location matters
