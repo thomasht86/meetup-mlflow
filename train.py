@@ -19,11 +19,8 @@ import mlflow
 from mlflow import log_metric, log_param, log_artifact
 import mlflow.sklearn
 import mlflow.pyfunc
-#import matplotlib
-#matplotlib.use("Agg")
 import matplotlib.pyplot as plt 
 import seaborn as sns 
-#sns.set()
 
 class TextClassifier(mlflow.pyfunc.PythonModel):
 
@@ -36,7 +33,7 @@ class TextClassifier(mlflow.pyfunc.PythonModel):
         print(type(model_input))
         prepped_input = self.vectorizer.transform(model_input["description"])
         print(prepped_input.shape)
-        preds = self.clf.predict(prepped_input)
+        preds = self.clf.predict_proba(prepped_input)
         return preds
 
 parser = argparse.ArgumentParser()
@@ -68,7 +65,6 @@ if __name__ == "__main__":
 
     mlflow.set_experiment("ntnu_course_classifier")
 
-    ## Data import and cleaning
     with mlflow.start_run() as run:
         # Get path to save model
         tracking_uri = mlflow.tracking.get_tracking_uri() 
@@ -86,6 +82,7 @@ if __name__ == "__main__":
         mlflow.log_param("fit_prior", fit_prior)
         mlflow.log_param("data_file", data_file)
 
+        ## Data import and cleaning
         df = pd.read_csv(data_file, usecols=[1,2,3,4,5,6])
         df = df.dropna()
 
