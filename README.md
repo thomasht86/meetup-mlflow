@@ -35,6 +35,9 @@ With Windows 10 came the opportunity to install Windows Subsystem for Linux (WSL
 4. Install [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) for Visual Studio Code
 This allows us to access the Linux filesystem from VS Code.
 5. Open the linux filesystem from VS Code 
+
+Then do either A or B:
+
 A)
 Open the Ubuntu 18.04 application. 
 Run the command:
@@ -42,7 +45,7 @@ Run the command:
     ```code-insiders .```
 
 Necessary components will be installed, and VS Code with access to the WSL file system will be launched.
-OR
+
 B) 
 Open Visual Studio Code - Insiders, open the command palette (Ctrl+Shift+P) and choose "Remote WSL: New window".
 You should now be able to open a folder on the Ubuntu filesystem from Visual Studio Code Insiders. 
