@@ -52,6 +52,7 @@ You should now be able to open a folder on the Ubuntu filesystem from Visual Stu
 
 ### Linux users
 1. Install Anaconda 
+
     ```wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh```
 
     ```sh Anaconda3-2019.03-Linux-x86_64.sh```
