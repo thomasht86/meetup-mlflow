@@ -51,7 +51,10 @@ Open Visual Studio Code - Insiders, open the command palette (Ctrl+Shift+P) and 
 You should now be able to open a folder on the Ubuntu filesystem from Visual Studio Code Insiders. 
 
 ### Linux users
-1. [Install Anaconda (Python 3.7 version)](https://www.anaconda.com/distribution/)
+1. Install Anaconda 
+    ```wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh```
+
+    ```sh Anaconda3-2019.03-Linux-x86_64.sh```
 
 ## Create an Azure subscription
 If you already have access to an active Azure subscription, you can use this. 
