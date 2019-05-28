@@ -1,6 +1,11 @@
 # Trondheim Machine Learning Meetup - MlFlow
 This repo contains instructions and code to follow the demo presented 29-05-2019.
-The tutorial will demonstrate training a 
+The tutorial will demonstrate the lifecycle of a text classifier through the following phases:
+1. Experimenting and EDA in jupyter notebook.
+2. Script (with MlFlow) to run structured experiments (potentially in cloud)
+3. Evaluating results of experiments and choosing a model to deploy.
+4. Deploy the selected model to production in Azure. 
+5. Making requests to the model. 
 
 ## Set up environment
 This is a guide to help you set up your development environment so that you can follow the demo on your own computer. (And use MlFlow for your own projects afterwards)
