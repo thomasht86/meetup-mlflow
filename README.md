@@ -30,7 +30,7 @@ With Windows 10 came the opportunity to install Windows Subsystem for Linux (WSL
 
     ```sh Anaconda3-2019.03-Linux-x86_64.sh```
 
-Answer "yes" to all prompts.
+    Answer "yes" to all prompts.
 3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) in Windows.
 4. Install [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) for Visual Studio Code
 This allows us to access the Linux filesystem from VS Code.
