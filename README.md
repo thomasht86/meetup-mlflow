@@ -8,7 +8,10 @@ The tutorial will demonstrate the lifecycle of a text classifier through the fol
 5. Making requests to the model. 
 
 ## Set up environment
-This is a guide to help you set up your development environment so that you can follow the demo on your own computer. (And use MlFlow for your own projects afterwards)
+This is a guide to help you set up your development environment if you want follow the demo on your own computer. (And use MlFlow for your own projects afterwards). 
+
+If you don't manage to set this up, don't worry. Join the meetup and watch the big screen with a beer instead. :)
+
 ### Mac users
 1. [Install Anaconda (Python 3.7 version)](https://www.anaconda.com/distribution/)
 2. Optional: Install Visual Studio Code
@@ -58,16 +61,6 @@ To install, run the following command (must be run from WSL bash for windows use
 
 This will install the release candidate version. 
 
-## Training 
-- Demonstrate training+tracking on local computer
-- (Demonstrate training+tracking on Databricks)
-
-## Comparing
-- MlFlow UI
-- Access results programmatically
-
-## Serving
-- Serving from local computer
-- Deploying to Azure
+If you made it through, well done. If not, we will spend some time in the beginning of the meetup to try to get as many as possible set up. You will also hopefully learn a little from watching the demo.
 
 

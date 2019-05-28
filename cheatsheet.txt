@@ -40,3 +40,15 @@ Get subscription_id
 
 # Deploy model to azureml
 See notebook
+
+## Training 
+- Demonstrate training+tracking on local computer
+- (Demonstrate training+tracking on Databricks)
+
+## Comparing
+- MlFlow UI
+- Access results programmatically
+
+## Serving
+- Serving from local computer
+- Deploying to Azure
