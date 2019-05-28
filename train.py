@@ -19,6 +19,11 @@ import mlflow
 from mlflow import log_metric, log_param, log_artifact
 import mlflow.sklearn
 import mlflow.pyfunc
+#import matplotlib
+#matplotlib.use("Agg")
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+#sns.set()
 
 class TextClassifier(mlflow.pyfunc.PythonModel):
 
@@ -57,7 +62,7 @@ if __name__ == "__main__":
     use_stoplist = args.use_stoplist
     use_svd = False
 
-    conda_env_path = "environment.yml"
+    conda_env_path = "condaenv.yml"
     model_prefix = "/models"
     data_file = args.datafile
 
@@ -135,13 +140,18 @@ if __name__ == "__main__":
         f1_macro = precision_score(y_test, preds, average="macro")
         f1_micro = precision_score(y_test, preds, average="micro")
         f1_per_class = precision_score(y_test, preds, labels=label_cols, average=None)
+        cm = confusion_matrix(y_test, preds, labels=label_cols)
+        df_cm = pd.DataFrame(cm, index=label_cols, columns=label_cols)
+        cm_plot = sns.heatmap(df_cm, annot=True, fmt="d")
+        heatmap_path = artifact_uri+"/cm_heatmap.png"
+        fig = cm_plot.get_figure()
+        fig.savefig(heatmap_path)
 
         mlflow.log_metric("accuracy", acc)
         mlflow.log_metric("f1_macro", f1_macro)
         mlflow.log_metric("f1_micro", f1_micro)
         for c, f1 in zip(label_cols, f1_per_class):
-            mlflow.log_metric("f1_"+c, f1)
-        
+            mlflow.log_metric("f1_"+c, f1)        
         #mlflow.sklearn.save_model(clf, model_path, conda_env=conda_env_path, serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE)
 
         #%% [markdown]

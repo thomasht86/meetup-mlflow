@@ -10,6 +10,7 @@ dependencies:
   - scikit-learn==0.20.3
   - pip:
     - https://mlflow-snapshots.s3-us-west-2.amazonaws.com/mlflow-1.0.0.rc0-1173.fb8a711-py2.py3-none-any.whl
+    - seaborn
     - jupyter
     - azureml-sdk
     - pylint
