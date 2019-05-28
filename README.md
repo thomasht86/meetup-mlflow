@@ -77,7 +77,8 @@ To install, run the following command (must be run from WSL bash for windows use
 This will install the release candidate version. 
 
 ## AzureML SDK installation
-Also in conda "base" environment
+Also in conda "base" environment:
+
 ```pip install azureml-sdk```
 
 If you made it through, well done! If not, we will spend some time in the beginning of the meetup to try to get as many as possible set up. You will also hopefully learn something from just watching the demo.
