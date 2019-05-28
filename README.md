@@ -22,12 +22,13 @@ You cannot install MLflow on the MacOS system installation of Python. We recomme
 ### Windows 10 users
 MlFlow does not support installation on Windows (yet). But I will describe one way that you can make it work anyway, that may also be useful for other development scenarios. This is only possible for windows 10. For users with earlier windows versions, I do not have a solution, unfortunately.
 
-With Windows 10 came the opportunity to install Windows Subsystem for Linux (WSL). This enables us to access a full Linux environment without the overhead of a virtual machine. WSL is not enabled by default, but must be configured. Here is a straightforward recipe to achieve this. (Choose Ubuntu 18.04 as the Linux distribution from the Microsoft store)
-1. Install Anaconda in WSL your Ubuntu 18.04 shell according to [these](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart) instructions.
-2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) (in Windows)
-3. Install [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) for Visual Studio Code
+With Windows 10 came the opportunity to install Windows Subsystem for Linux (WSL). This enables us to access a full Linux environment without the overhead of a virtual machine. WSL is not enabled by default, but must be configured. 
+1. Enable WSL and install Ubunut according to [these](https://docs.microsoft.com/en-us/windows/wsl/install-win10) instructions. (Choose Ubuntu 18.04 as the Linux distribution from the Microsoft store)
+2. Install Anaconda in WSL your Ubuntu 18.04 shell according to [these](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart) instructions.
+3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) (in Windows)
+4. Install [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) for Visual Studio Code
 This allows us to access the Linux filesystem from VS Code.
-4. Open the linux filesystem from VS Code 
+5. Open the linux filesystem from VS Code 
 A)
 Open the Ubuntu 18.04 application. 
 Run the command:
