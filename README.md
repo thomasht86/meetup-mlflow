@@ -26,7 +26,9 @@ With Windows 10 came the opportunity to install Windows Subsystem for Linux (WSL
 1. Enable WSL and install Ubuntu 18.04 according to [these](https://docs.microsoft.com/en-us/windows/wsl/install-win10) instructions. (Choose Ubuntu 18.04 as the Linux distribution from the Microsoft store)
 2. Install Anaconda in WSL your Ubuntu 18.04 shell:
 ```wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh```
+
 ```sh Anaconda3-2019.03-Linux-x86_64.sh```
+
 Answer "yes" to all prompts.
 3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) in Windows.
 4. Install [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) for Visual Studio Code
