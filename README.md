@@ -25,9 +25,10 @@ MlFlow does not support installation on Windows (yet). But I will describe one w
 With Windows 10 came the opportunity to install Windows Subsystem for Linux (WSL). This enables us to access a full Linux environment without the overhead of a virtual machine. WSL is not enabled by default, but must be configured. 
 1. Enable WSL and install Ubuntu 18.04 according to [these](https://docs.microsoft.com/en-us/windows/wsl/install-win10) instructions. (Choose Ubuntu 18.04 as the Linux distribution from the Microsoft store)
 2. Install Anaconda in WSL your Ubuntu 18.04 shell:
-```wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh```
 
-```sh Anaconda3-2019.03-Linux-x86_64.sh```
+    ```wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh```
+
+    ```sh Anaconda3-2019.03-Linux-x86_64.sh```
 
 Answer "yes" to all prompts.
 3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) in Windows.
