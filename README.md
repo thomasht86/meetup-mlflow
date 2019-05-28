@@ -57,6 +57,9 @@ You should now be able to open a folder on the Ubuntu filesystem from Visual Stu
 
     ```sh Anaconda3-2019.03-Linux-x86_64.sh```
 
+    Answer "yes" to all prompts.
+
+
 ## Create an Azure subscription
 If you already have access to an active Azure subscription, you can use this. 
 Otherwise, you can create a free account with $200 of credits [here](https://azure.microsoft.com/en-us/free/).
