@@ -39,7 +39,7 @@ A)
 Open the Ubuntu 18.04 application. 
 Run the command:
 
-```code-insiders .```
+    ```code-insiders .```
 
 Necessary components will be installed, and VS Code with access to the WSL file system will be launched.
 OR
