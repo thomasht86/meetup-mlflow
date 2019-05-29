@@ -72,13 +72,13 @@ if __name__ == "__main__":
     model_prefix = "/models"
     data_file = args.datafile
 
-    mlflow.set_experiment("ntnu_course_classifier")
+    #mlflow.set_experiment("ntnu_course_classifier")
 
     with mlflow.start_run() as run:
         # Get path to save model
         tracking_uri = mlflow.tracking.get_tracking_uri() 
         print("Logging to "+tracking_uri)
-        artifact_uri = mlflow.get_artifact_uri()
+        artifact_uri = mlflow.get_artifact_uri().split("file://")[1]
         print("Saving artifacts to "+artifact_uri)
         model_path = artifact_uri+model_prefix
 
@@ -143,6 +143,7 @@ if __name__ == "__main__":
         preds = clf.predict(test_vec)
 
         textclf = TextClassifier(vec, clf)
+        print("Saving model to "+model_path)
         mlflow.pyfunc.save_model(model_path, conda_env=conda_env_path, python_model=textclf)
         
         # Calculate metrics from predictions and y_test
