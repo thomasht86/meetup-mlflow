@@ -38,13 +38,18 @@ class TextClassifier(mlflow.pyfunc.PythonModel):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--seed", help="Specify seed for reproducibility", type=int, default=42)
-parser.add_argument("-i", "--idf", help="Whether to use inverse document frequency", action="store_true", default=True)
+parser.add_argument("-i", "--idf", help="Whether to use inverse document frequency", type=bool, default=True)
 parser.add_argument("-n", "--ngrams", help="Number of character sequences to use as features", type=int,
                     choices=[1,2,3], default=1)
-parser.add_argument("-a", "--alpha", help="Naive bayes smoothing parameter (0=no smoothing)", type=float, default=1.)
-parser.add_argument("-f", "--fit_prior", help="Whether to fit priors", action="store_true", default=True)
-parser.add_argument("-u", "--use_stoplist", help="Whether to remove most common words", action="store_true", default=True)
+parser.add_argument("-u", "--use_stoplist", help="Whether to remove most common words", type=bool, default=True)
 parser.add_argument("-d", "--datafile", help="Path to datafile", type=str, default="mlflow/data/course_descriptions.csv")
+parser.add_argument("-m", "--model", help="Model type", type=str, choices=["nb", "log_reg"], default="nb")
+# Naive Bayes args
+parser.add_argument("-a", "--alpha", help="Naive bayes smoothing parameter (0=no smoothing)", type=float, default=1.)
+parser.add_argument("-f", "--fit_prior", help="Whether to fit priors", type=bool, default=True)
+# Logreg args 
+parser.add_argument("-C", "--C", help="Logistic regression regularization parameter", type=float, default=1.)
+
 
 if __name__ == "__main__":
 
@@ -58,6 +63,10 @@ if __name__ == "__main__":
     fit_prior = args.fit_prior
     use_stoplist = args.use_stoplist
     use_svd = False
+    C = args.C
+    model_dict = {"nb":MultinomialNB(alpha=alpha, fit_prior=fit_prior),
+                  "log_reg": LogisticRegression(C=C, multi_class="ovr", solver="saga", max_iter=1000)}
+    clf = model_dict[args.model]
 
     conda_env_path = "condaenv.yml"
     model_prefix = "/models"
@@ -78,9 +87,13 @@ if __name__ == "__main__":
         mlflow.log_param("use_idf", use_idf)
         mlflow.log_param("use_stoplist", use_stoplist)
         mlflow.log_param("ngrams", args.ngrams)
+        mlflow.log_param("data_file", data_file)
+        mlflow.log_param("model_type", args.model)
+        #if args.model == "nb":
         mlflow.log_param("alpha", alpha)
         mlflow.log_param("fit_prior", fit_prior)
-        mlflow.log_param("data_file", data_file)
+        #if args.model == "log_reg":
+        mlflow.log_param("C", C)
 
         ## Data import and cleaning
         df = pd.read_csv(data_file, usecols=[1,2,3,4,5,6])
@@ -121,7 +134,7 @@ if __name__ == "__main__":
         label_cols = df["fac"].astype(str).unique().tolist()
 
         # Initialize a Naive Bayes-classifier
-        clf = MultinomialNB(alpha=alpha, fit_prior=fit_prior)
+        #clf = MultinomialNB(alpha=alpha, fit_prior=fit_prior)
 
         # Fit the model
         clf.fit(trn_vec, y_train)
