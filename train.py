@@ -34,7 +34,11 @@ class TextClassifier(mlflow.pyfunc.PythonModel):
         prepped_input = self.vectorizer.transform(model_input["description"])
         print(prepped_input.shape)
         preds = self.clf.predict_proba(prepped_input)
-        return preds
+        resp = []
+        for pred in preds:
+            pred_resp = {c:p for c, p in zip(clf.classes_, pred)}
+            resp.append(pred_resp)
+        return resp
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--seed", help="Specify seed for reproducibility", type=int, default=42)
@@ -132,9 +136,6 @@ if __name__ == "__main__":
 
         # Create a list of the unique target values
         label_cols = df["fac"].astype(str).unique().tolist()
-
-        # Initialize a Naive Bayes-classifier
-        #clf = MultinomialNB(alpha=alpha, fit_prior=fit_prior)
 
         # Fit the model
         clf.fit(trn_vec, y_train)
